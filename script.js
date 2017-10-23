@@ -44,3 +44,14 @@ function setDataModal(){
     + "<div class='one wide column'><input type='checkbox' tabindex='0' checked='"+dataSettings[i].checked+"'></div>");
   }
 }
+function upFile(){
+  var docx2html=require('docx2html')
+  docx2html(fileInput.files[0],{container:document.getElementById('a')})
+    .then(function(html){
+	    html.toString();
+    })
+}
+function decode(){
+  var doc = $('#text').val();
+  $('#result').val(doc);
+}
