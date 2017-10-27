@@ -68,7 +68,7 @@ textarea{
   padding: 0px;
 }
 .ui.grid.listSettings{
-  height: 250px;
+  height: 315px;
   overflow-y: scroll;
 }
 ::-webkit-scrollbar {
