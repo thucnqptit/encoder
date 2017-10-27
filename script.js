@@ -76,6 +76,7 @@ function upFile(){
           var doc=new Docxgen(content);
           text=doc.getFullText();
           console.log(text);
+          // lineBreak = '<w:br/>'
           $('#text').html(text);
           $('#text').val(text);
       })
