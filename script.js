@@ -1,22 +1,24 @@
 var data = [
-  {"decode":"ph","encode":"f","checked":"true"},
-  {"decode":"gi","encode":"z","checked":"true"},
+  {"decode":"ph","encode":"φ","checked":"true"},
+  {"decode":"gi","encode":"γ","checked":"true"},
   {"decode":"ng","encode":"ŋ","checked":"true"},
   {"decode":"kh","encode":"ҡ","checked":"true"},
   {"decode":"nh","encode":"ɲ","checked":"true"},
-  {"decode":"ươ","encode":"w","checked":"true"},
+  {"decode":"ươ","encode":"ω","checked":"true"},
   {"decode":"th","encode":"ɵ","checked":"true"},
-  {"decode":"tr","encode":"j","checked":"true"}
+  {"decode":"tr","encode":"j","checked":"true"},
+  {"decode":"ch","encode":"ξ","checked":"true"}
 ];
 var dataUp = [
-  {"decode":"PH","encode":"F","checked":"true"},
-  {"decode":"GI","encode":"Z","checked":"true"},
+  {"decode":"PH","encode":"Φ","checked":"true"},
+  {"decode":"GI","encode":"Γ","checked":"true"},
   {"decode":"NG","encode":"Ŋ","checked":"true"},
   {"decode":"Kh","encode":"Ҡ","checked":"true"},
   {"decode":"NH","encode":"Ɲ","checked":"true"},
-  {"decode":"ƯƠ","encode":"W","checked":"true"},
-  {"decode":"TH","encode":"Ɵ","checked":"true"},
-  {"decode":"TR","encode":"J","checked":"true"}
+  {"decode":"ƯƠ","encode":"Ω","checked":"true"},
+  {"decode":"TH","encode":"Θ","checked":"true"},
+  {"decode":"TR","encode":"Ͳ","checked":"true"},
+  {"decode":"CH","encode":"Z","checked":"true"}
 ];
 var dataSettings = data;
 var dataSettingsUp = dataUp;
@@ -36,7 +38,20 @@ function saveSetting(){
   }
   closeModal()
 }
-
+function addSetting(){
+  var encode = $('#encode-add').val().toLowerCase();
+  var decode = $('#decode-add').val().toLowerCase();
+  if(encode === "" || !encode || decode === "" || !decode) return;
+  dataSettings.push({"decode":decode,"encode":encode,"checked":"true"});
+  dataSettingsUp.push({"decode":decode.toUpperCase(),"encode":encode.toUpperCase(),"checked":"true"});
+  $('.listSettings').append(
+  "<div class='seven wide column'><input type='text' value='"+encode+"' disabled></div>"
+  + "<div class='eight wide column'><input type='text' value='"+decode+"' disabled></div>"
+  + "<div class='one wide column'><input type='checkbox' tabindex='0' checked></div>");
+  $('.listSettings').scrollTop($('.listSettings')[0].scrollHeight);
+  $('#encode-add').val("");
+  $('#decode-add').val("");
+}
 function changeChecked(i){
   if (i.getAttribute('checked') === 'true'){
     i.setAttribute('checked','false');
