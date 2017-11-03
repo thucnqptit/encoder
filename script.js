@@ -6,7 +6,7 @@ var data = [
   {"decode":"nh","encode":"ɲ","checked":"true"},
   {"decode":"ươ","encode":"ω","checked":"true"},
   {"decode":"th","encode":"ɵ","checked":"true"},
-  {"decode":"tr","encode":"j","checked":"true"},
+  {"decode":"tr","encode":"φ","checked":"true"},
   {"decode":"ch","encode":"ξ","checked":"true"}
 ];
 var dataUp = [
