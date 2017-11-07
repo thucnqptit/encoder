@@ -13,15 +13,27 @@ var dataUp = [
   {"decode":"PH","encode":"Φ","checked":"true"},
   {"decode":"GI","encode":"Γ","checked":"true"},
   {"decode":"NG","encode":"Ŋ","checked":"true"},
-  {"decode":"Kh","encode":"Ҡ","checked":"true"},
+  {"decode":"KH","encode":"Ҡ","checked":"true"},
   {"decode":"NH","encode":"Ɲ","checked":"true"},
   {"decode":"ƯƠ","encode":"Ω","checked":"true"},
   {"decode":"TH","encode":"Θ","checked":"true"},
   {"decode":"TR","encode":"Ͳ","checked":"true"},
   {"decode":"CH","encode":"Z","checked":"true"}
 ];
+var dataCap = [
+  {"decode":"Ph","encode":"Φ","checked":"true"},
+  {"decode":"Gi","encode":"Γ","checked":"true"},
+  {"decode":"Ng","encode":"Ŋ","checked":"true"},
+  {"decode":"Kh","encode":"Ҡ","checked":"true"},
+  {"decode":"Nh","encode":"Ɲ","checked":"true"},
+  {"decode":"Ươ","encode":"Ω","checked":"true"},
+  {"decode":"Th","encode":"Θ","checked":"true"},
+  {"decode":"Tr","encode":"Ͳ","checked":"true"},
+  {"decode":"Ch","encode":"Z","checked":"true"}
+];
 var dataSettings = data;
 var dataSettingsUp = dataUp;
+var dataSettingsCap = dataCap;
 closeModal();
 function showModalSettings(){
   $('.ui.modal').show();
@@ -35,18 +47,20 @@ function saveSetting(){
   for(var i = 0; i < checkList.length; i++){
     dataSettings[i].checked = checkList[i].getAttribute('checked');
     dataSettingsUp[i].checked = dataSettings[i].checked;
+    dataSettingsCap[i].checked = dataSettings[i].checked;
   }
   closeModal()
 }
 function addSetting(){
-  var encode = $('#encode-add').val().toLowerCase();
-  var decode = $('#decode-add').val().toLowerCase();
+  var encode = $('#encode-add').val();
+  var decode = $('#decode-add').val();
   if(encode === "" || !encode || decode === "" || !decode) return;
-  dataSettings.push({"decode":decode,"encode":encode,"checked":"true"});
+  dataSettings.push({"decode":decode.toLowerCase();,"encode":encode.toLowerCase();,"checked":"true"});
   dataSettingsUp.push({"decode":decode.toUpperCase(),"encode":encode.toUpperCase(),"checked":"true"});
+  dataSettingsCap.push({"decode":decode,"encode":encode,"checked":"true"});
   $('.listSettings').append(
-  "<div class='seven wide column'><input type='text' value='"+encode+"' disabled></div>"
-  + "<div class='eight wide column'><input type='text' value='"+decode+"' disabled></div>"
+  "<div class='seven wide column'><input type='text' value='"+encode.toLowerCase();+"' disabled></div>"
+  + "<div class='eight wide column'><input type='text' value='"+decode.toLowerCase();+"' disabled></div>"
   + "<div class='one wide column'><input type='checkbox' tabindex='0' checked></div>");
   $('.listSettings').scrollTop($('.listSettings')[0].scrollHeight);
   $('#encode-add').val("");
@@ -123,12 +137,14 @@ function encode(){
   var doc = $('#text').val();
   doc = reconvert(doc, dataSettingsUp);
   doc = reconvert(doc, dataSettings);
+  doc = reconvert(doc, dataSettingsCap);
   $('#result').html(doc);
 }
 function decode(){
   var doc = $('#text').val();
   doc = convert(doc, dataSettingsUp);
   doc = convert(doc, dataSettings);
+  doc = convert(doc, dataSettingsCap);
   $('#result').html(doc);
 }
 function printFile(){
