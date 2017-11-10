@@ -55,12 +55,12 @@ function addSetting(){
   var encode = $('#encode-add').val();
   var decode = $('#decode-add').val();
   if(encode === "" || !encode || decode === "" || !decode) return;
-  dataSettings.push({"decode":decode.toLowerCase();,"encode":encode.toLowerCase();,"checked":"true"});
+  dataSettings.push({"decode":decode.toLowerCase(),"encode":encode.toLowerCase(),"checked":"true"});
   dataSettingsUp.push({"decode":decode.toUpperCase(),"encode":encode.toUpperCase(),"checked":"true"});
   dataSettingsCap.push({"decode":decode,"encode":encode,"checked":"true"});
   $('.listSettings').append(
-  "<div class='seven wide column'><input type='text' value='"+encode.toLowerCase();+"' disabled></div>"
-  + "<div class='eight wide column'><input type='text' value='"+decode.toLowerCase();+"' disabled></div>"
+  "<div class='seven wide column'><input type='text' value='"+encode.toLowerCase()+"' disabled></div>"
+  + "<div class='eight wide column'><input type='text' value='"+decode.toLowerCase()+"' disabled></div>"
   + "<div class='one wide column'><input type='checkbox' tabindex='0' checked></div>");
   $('.listSettings').scrollTop($('.listSettings')[0].scrollHeight);
   $('#encode-add').val("");
