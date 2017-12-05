@@ -7,7 +7,9 @@ var data = [
   {"decode":"ươ","encode":"ω","checked":"true"},
   {"decode":"th","encode":"ɵ","checked":"true"},
   {"decode":"tr","encode":"φ","checked":"true"},
-  {"decode":"ch","encode":"ξ","checked":"true"}
+  {"decode":"ch","encode":"ξ","checked":"true"},
+  {"decode":" hiệu điện thế ","encode":" U ","checked":"true"},
+  {"decode":" hiệu điện thế.","encode":" U.","checked":"true"}
 ];
 var dataUp = [
   {"decode":"PH","encode":"Φ","checked":"true"},
@@ -18,7 +20,9 @@ var dataUp = [
   {"decode":"ƯƠ","encode":"Ω","checked":"true"},
   {"decode":"TH","encode":"Θ","checked":"true"},
   {"decode":"TR","encode":"Ͳ","checked":"true"},
-  {"decode":"CH","encode":"Z","checked":"true"}
+  {"decode":"CH","encode":"Z","checked":"true"},
+  {"decode":" hiệu điện thế ","encode":" U ","checked":"true"},
+  {"decode":" hiệu điện thế.","encode":" U.","checked":"true"}
 ];
 var dataCap = [
   {"decode":"Ph","encode":"Φ","checked":"true"},
@@ -29,7 +33,9 @@ var dataCap = [
   {"decode":"Ươ","encode":"Ω","checked":"true"},
   {"decode":"Th","encode":"Θ","checked":"true"},
   {"decode":"Tr","encode":"Ͳ","checked":"true"},
-  {"decode":"Ch","encode":"Z","checked":"true"}
+  {"decode":"Ch","encode":"Z","checked":"true"},
+  {"decode":" hiệu điện thế ","encode":" U ","checked":"true"},
+  {"decode":" hiệu điện thế.","encode":" U.","checked":"true"}
 ];
 var dataSettings = data;
 var dataSettingsUp = dataUp;
