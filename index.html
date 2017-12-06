@@ -83,19 +83,40 @@
       <div class="close-button"><i class="close icon" onclick="closeModal()"></i></div>
     </div>
     <div class="content">
-      <div class="ui form">
-        <div class="ui grid">
-          <div class="seven wide column"><label><b>Viết tắt</b></label></div>
-          <div class="nine wide column"><label><b>Ý nghĩa</b></label></div>
-        </div>
-        <div class="ui grid listSettings">
-        </div>
-        <div class="ui grid">
-          <div class="seven wide column"><input id="encode-add" type="text" placeholder="Viết tắt..." ></div>
-          <div class="eight wide column"><input id="decode-add" type="text" placeholder="Ý nghĩa..." ></div>
-          <div class="one wide column"><i class="add icon" onclick="addSetting()"></i></div>
-        </div>
-      </div>
+      <div class="ui top attached tabular menu">
+  <a class="item active" data-tab="first">Chữ kép</a>
+  <a class="item" data-tab="second">Công thức vật lý</a>
+</div>
+<div class="ui bottom active attached tab segment" data-tab="first">
+  <div class="ui form">
+    <div class="ui grid">
+      <div class="seven wide column"><label><b>Viết tắt</b></label></div>
+      <div class="nine wide column"><label><b>Ý nghĩa</b></label></div>
+    </div>
+    <div class="ui grid listSettings">
+    </div>
+    <div class="ui grid">
+      <div class="seven wide column"><input id="encode-add" type="text" placeholder="Viết tắt..." ></div>
+      <div class="eight wide column"><input id="decode-add" type="text" placeholder="Ý nghĩa..." ></div>
+      <div class="one wide column"><i class="add icon" onclick="addSetting()"></i></div>
+    </div>
+  </div>
+</div>
+<div class="ui bottom attached tab segment" data-tab="second">
+  <div class="ui form">
+    <div class="ui grid">
+      <div class="seven wide column"><label><b>Viết tắt</b></label></div>
+      <div class="nine wide column"><label><b>Ý nghĩa</b></label></div>
+    </div>
+    <div class="ui grid listSettingsPhys">
+    </div>
+    <div class="ui grid">
+      <div class="seven wide column"><input id="encode-add-phys" type="text" placeholder="Viết tắt..." ></div>
+      <div class="eight wide column"><input id="decode-add-phys" type="text" placeholder="Ý nghĩa..." ></div>
+      <div class="one wide column"><i class="add icon" onclick="addSettingPhys()"></i></div>
+    </div>
+  </div>
+</div>
     </div>
     <div class="actions">
       <div class="ui cancel button" onclick="closeModal()">Hủy</div>

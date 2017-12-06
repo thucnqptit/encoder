@@ -67,7 +67,7 @@ textarea{
 .ui.modal .content{
   padding: 0px;
 }
-.ui.grid.listSettings{
+.ui.grid.listSettings, .ui.grid.listSettingsPhys{
   height: 315px;
   overflow-y: scroll;
 }

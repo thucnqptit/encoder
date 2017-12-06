@@ -7,9 +7,7 @@ var data = [
   {"decode":"ươ","encode":"ω","checked":"true"},
   {"decode":"th","encode":"ɵ","checked":"true"},
   {"decode":"tr","encode":"φ","checked":"true"},
-  {"decode":"ch","encode":"ξ","checked":"true"},
-  {"decode":" hiệu điện thế ","encode":" U ","checked":"true"},
-  {"decode":" hiệu điện thế.","encode":" U.","checked":"true"}
+  {"decode":"ch","encode":"ξ","checked":"true"}
 ];
 var dataUp = [
   {"decode":"PH","encode":"Φ","checked":"true"},
@@ -20,9 +18,7 @@ var dataUp = [
   {"decode":"ƯƠ","encode":"Ω","checked":"true"},
   {"decode":"TH","encode":"Θ","checked":"true"},
   {"decode":"TR","encode":"Ͳ","checked":"true"},
-  {"decode":"CH","encode":"Z","checked":"true"},
-  {"decode":" hiệu điện thế ","encode":" U ","checked":"true"},
-  {"decode":" hiệu điện thế.","encode":" U.","checked":"true"}
+  {"decode":"CH","encode":"Z","checked":"true"}
 ];
 var dataCap = [
   {"decode":"Ph","encode":"Φ","checked":"true"},
@@ -33,13 +29,35 @@ var dataCap = [
   {"decode":"Ươ","encode":"Ω","checked":"true"},
   {"decode":"Th","encode":"Θ","checked":"true"},
   {"decode":"Tr","encode":"Ͳ","checked":"true"},
-  {"decode":"Ch","encode":"Z","checked":"true"},
+  {"decode":"Ch","encode":"Z","checked":"true"}
+];
+var dataPhys = [
   {"decode":" hiệu điện thế ","encode":" U ","checked":"true"},
-  {"decode":" hiệu điện thế.","encode":" U.","checked":"true"}
+  {"decode":" khối lượng riêng ","encode":" D ","checked":"true"},
+  {"decode":" thể tích ","encode":" V ","checked":"true"},
+  {"decode":" thời gian ","encode":" t ","checked":"true"},
+  {"decode":" quãng đường ","encode":" s ","checked":"true"},
+  {"decode":" điện trở ","encode":" R ","checked":"true"},
+  {"decode":" chiều dài dây dẫn ","encode":" L ","checked":"true"},
+  {"decode":" điện dung ","encode":" C ","checked":"true"},
+  {"decode":" điện tích ","encode":" Q ","checked":"true"},
+  {"decode":" cảm ứng từ ","encode":" B ","checked":"true"},
+  {"decode":" cường độ điện trường E ","encode":" E ","checked":"true"},
+  {"decode":" độ cứng ","encode":" k ","checked":"true"},
+  {"decode":" hệ số tự cảm ","encode":" L ","checked":"true"},
+  {"decode":" phương trình phản ứng ","encode":" PTPU ","checked":"true"},
+  {"decode":" công thức cấu tạo ","encode":" CTCT ","checked":"true"},
+  {"decode":" công thức phân tử ","encode":" CTPT ","checked":"true"},
+  {"decode":" electron ","encode":" e ","checked":"true"},
+  {"decode":" proton ","encode":" p ","checked":"true"},
+  {"decode":" cường độ dòng điện ","encode":" I ","checked":"true"},
+  {"decode":" gia tốc trọng trường ","encode":" G ","checked":"true"},
+  {"decode":" gia tốc ","encode":" a ","checked":"true"}
 ];
 var dataSettings = data;
 var dataSettingsUp = dataUp;
 var dataSettingsCap = dataCap;
+var dataSettingsPhys = dataPhys;
 closeModal();
 function showModalSettings(){
   $('.ui.modal').show();
@@ -55,7 +73,11 @@ function saveSetting(){
     dataSettingsUp[i].checked = dataSettings[i].checked;
     dataSettingsCap[i].checked = dataSettings[i].checked;
   }
-  closeModal()
+  checkList = $('.checkPhys');
+  for(var i = 0; i < checkList.length; i++){
+    dataSettingsPhys[i].checked = checkList[i].getAttribute('checked');
+  }
+  closeModal();
 }
 function addSetting(){
   var encode = $('#encode-add').val();
@@ -72,6 +94,19 @@ function addSetting(){
   $('#encode-add').val("");
   $('#decode-add').val("");
 }
+function addSettingPhys(){
+  var encode = $('#encode-add-phys').val();
+  var decode = $('#decode-add-phys').val();
+  if(encode === "" || !encode || decode === "" || !decode) return;
+  dataSettingsPhys.push({"decode":decode,"encode":encode,"checked":"true"});
+  $('.listSettingsPhys').append(
+  "<div class='seven wide column'><input type='text' value='"+encode+"' disabled></div>"
+  + "<div class='eight wide column'><input type='text' value='"+decode+"' disabled></div>"
+  + "<div class='one wide column'><input type='checkbox' tabindex='0' checked></div>");
+  $('.listSettingsPhys').scrollTop($('.listSettingsPhys')[0].scrollHeight);
+  $('#encode-add-phys').val("");
+  $('#decode-add-phys').val("");
+}
 function changeChecked(i){
   if (i.getAttribute('checked') === 'true'){
     i.setAttribute('checked','false');
@@ -87,6 +122,13 @@ function setDataModal(){
     "<div class='seven wide column'><input type='text' value='"+dataSettings[i].encode+"' disabled></div>"
     + "<div class='eight wide column'><input type='text' value='"+dataSettings[i].decode+"' disabled></div>"
     + "<div class='one wide column'><input type='checkbox' tabindex='0' checked='"+dataSettings[i].checked+"' class='check' onchange='changeChecked(this)'></div>");
+  }
+  $('.listSettingsPhys').html("");
+  for(var i = 0; i < dataSettingsPhys.length; i++){
+    $('.listSettingsPhys').append(
+    "<div class='seven wide column'><input type='text' value='"+dataSettingsPhys[i].encode+"' disabled></div>"
+    + "<div class='eight wide column'><input type='text' value='"+dataSettingsPhys[i].decode+"' disabled></div>"
+    + "<div class='one wide column'><input type='checkbox' tabindex='0' checked='"+dataSettingsPhys[i].checked+"' class='checkPhys' onchange='changeChecked(this)'></div>");
   }
 }
 var loadFile=function(url,callback){
@@ -144,6 +186,7 @@ function encode(){
   doc = reconvert(doc, dataSettingsUp);
   doc = reconvert(doc, dataSettings);
   doc = reconvert(doc, dataSettingsCap);
+  doc = reconvert(doc, dataSettingsPhys);
   $('#result').html(doc);
 }
 function decode(){
@@ -151,6 +194,7 @@ function decode(){
   doc = convert(doc, dataSettingsUp);
   doc = convert(doc, dataSettings);
   doc = convert(doc, dataSettingsCap);
+    doc = convert(doc, dataSettingsPhys);
   $('#result').html(doc);
 }
 function printFile(){
@@ -162,3 +206,6 @@ function printFile(){
   WinPrint.print();
   WinPrint.close();
 }
+$('.menu .item')
+  .tab()
+;
