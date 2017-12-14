@@ -183,10 +183,10 @@ function reconvert(doc, array){
 }
 function encode(){
   var doc = $('#text').val();
+  doc = reconvert(doc, dataSettingsPhys);
   doc = reconvert(doc, dataSettingsUp);
   doc = reconvert(doc, dataSettings);
   doc = reconvert(doc, dataSettingsCap);
-  doc = reconvert(doc, dataSettingsPhys);
   $('#result').html(doc);
 }
 function decode(){
