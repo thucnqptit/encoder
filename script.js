@@ -191,10 +191,10 @@ function encode(){
 }
 function decode(){
   var doc = $('#text').val();
+  doc = convert(doc, dataSettingsPhys);
   doc = convert(doc, dataSettingsUp);
   doc = convert(doc, dataSettings);
   doc = convert(doc, dataSettingsCap);
-    doc = convert(doc, dataSettingsPhys);
   $('#result').html(doc);
 }
 function printFile(){
