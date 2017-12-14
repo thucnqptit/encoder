@@ -1,3 +1,26 @@
+var dataPhys = [
+  {"decode":" hiệu điện thế ","encode":" U ","checked":"true"},
+  {"decode":" khối lượng riêng ","encode":" D ","checked":"true"},
+  {"decode":" thể tích ","encode":" V ","checked":"true"},
+  {"decode":" thời gian ","encode":" t ","checked":"true"},
+  {"decode":" quãng đường ","encode":" s ","checked":"true"},
+  {"decode":" điện trở ","encode":" R ","checked":"true"},
+  {"decode":" chiều dài dây dẫn ","encode":" L ","checked":"true"},
+  {"decode":" điện dung ","encode":" C ","checked":"true"},
+  {"decode":" điện tích ","encode":" Q ","checked":"true"},
+  {"decode":" cảm ứng từ ","encode":" B ","checked":"true"},
+  {"decode":" cường độ điện trường E ","encode":" E ","checked":"true"},
+  {"decode":" độ cứng ","encode":" k ","checked":"true"},
+  {"decode":" hệ số tự cảm ","encode":" L ","checked":"true"},
+  {"decode":" phương trình phản ứng ","encode":" PTPU ","checked":"true"},
+  {"decode":" công thức cấu tạo ","encode":" CTCT ","checked":"true"},
+  {"decode":" công thức phân tử ","encode":" CTPT ","checked":"true"},
+  {"decode":" electron ","encode":" e ","checked":"true"},
+  {"decode":" proton ","encode":" p ","checked":"true"},
+  {"decode":" cường độ dòng điện ","encode":" I ","checked":"true"},
+  {"decode":" gia tốc trọng trường ","encode":" G ","checked":"true"},
+  {"decode":" gia tốc ","encode":" a ","checked":"true"}
+];
 var data = [
   {"decode":"ph","encode":"φ","checked":"true"},
   {"decode":"gi","encode":"γ","checked":"true"},
@@ -30,29 +53,6 @@ var dataCap = [
   {"decode":"Th","encode":"Θ","checked":"true"},
   {"decode":"Tr","encode":"Ͳ","checked":"true"},
   {"decode":"Ch","encode":"Z","checked":"true"}
-];
-var dataPhys = [
-  {"decode":" hiệu điện thế ","encode":" U ","checked":"true"},
-  {"decode":" khối lượng riêng ","encode":" D ","checked":"true"},
-  {"decode":" thể tích ","encode":" V ","checked":"true"},
-  {"decode":" thời gian ","encode":" t ","checked":"true"},
-  {"decode":" quãng đường ","encode":" s ","checked":"true"},
-  {"decode":" điện trở ","encode":" R ","checked":"true"},
-  {"decode":" chiều dài dây dẫn ","encode":" L ","checked":"true"},
-  {"decode":" điện dung ","encode":" C ","checked":"true"},
-  {"decode":" điện tích ","encode":" Q ","checked":"true"},
-  {"decode":" cảm ứng từ ","encode":" B ","checked":"true"},
-  {"decode":" cường độ điện trường E ","encode":" E ","checked":"true"},
-  {"decode":" độ cứng ","encode":" k ","checked":"true"},
-  {"decode":" hệ số tự cảm ","encode":" L ","checked":"true"},
-  {"decode":" phương trình phản ứng ","encode":" PTPU ","checked":"true"},
-  {"decode":" công thức cấu tạo ","encode":" CTCT ","checked":"true"},
-  {"decode":" công thức phân tử ","encode":" CTPT ","checked":"true"},
-  {"decode":" electron ","encode":" e ","checked":"true"},
-  {"decode":" proton ","encode":" p ","checked":"true"},
-  {"decode":" cường độ dòng điện ","encode":" I ","checked":"true"},
-  {"decode":" gia tốc trọng trường ","encode":" G ","checked":"true"},
-  {"decode":" gia tốc ","encode":" a ","checked":"true"}
 ];
 var dataSettings = data;
 var dataSettingsUp = dataUp;
