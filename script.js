@@ -79,6 +79,19 @@ function saveSetting(){
   }
   closeModal();
 }
+function addSettingPhys(){
+  var encode = $('#encode-add-phys').val();
+  var decode = $('#decode-add-phys').val();
+  if(encode === "" || !encode || decode === "" || !decode) return;
+  dataSettingsPhys.push({"decode":decode,"encode":encode,"checked":"true"});
+  $('.listSettingsPhys').append(
+  "<div class='seven wide column'><input type='text' value='"+encode+"' disabled></div>"
+  + "<div class='eight wide column'><input type='text' value='"+decode+"' disabled></div>"
+  + "<div class='one wide column'><input type='checkbox' tabindex='0' checked></div>");
+  $('.listSettingsPhys').scrollTop($('.listSettingsPhys')[0].scrollHeight);
+  $('#encode-add-phys').val("");
+  $('#decode-add-phys').val("");
+}
 function addSetting(){
   var encode = $('#encode-add').val();
   var decode = $('#decode-add').val();
@@ -93,19 +106,6 @@ function addSetting(){
   $('.listSettings').scrollTop($('.listSettings')[0].scrollHeight);
   $('#encode-add').val("");
   $('#decode-add').val("");
-}
-function addSettingPhys(){
-  var encode = $('#encode-add-phys').val();
-  var decode = $('#decode-add-phys').val();
-  if(encode === "" || !encode || decode === "" || !decode) return;
-  dataSettingsPhys.push({"decode":decode,"encode":encode,"checked":"true"});
-  $('.listSettingsPhys').append(
-  "<div class='seven wide column'><input type='text' value='"+encode+"' disabled></div>"
-  + "<div class='eight wide column'><input type='text' value='"+decode+"' disabled></div>"
-  + "<div class='one wide column'><input type='checkbox' tabindex='0' checked></div>");
-  $('.listSettingsPhys').scrollTop($('.listSettingsPhys')[0].scrollHeight);
-  $('#encode-add-phys').val("");
-  $('#decode-add-phys').val("");
 }
 function changeChecked(i){
   if (i.getAttribute('checked') === 'true'){
